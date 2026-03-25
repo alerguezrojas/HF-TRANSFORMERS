@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environment
+.env/
+.venv/
+venv/
+
+# Training artifacts / model checkpoints
+mi_modelo_cine/
+modelo_final_critico/
+**/checkpoint-*/
+*.safetensors
+*.pt
+*.pth
