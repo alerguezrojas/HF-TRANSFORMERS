@@ -16,3 +16,14 @@ print(f"Capas de nuestro modelo personalizado: {planos.n_layer}")
 mi_mini_modelo = AutoModelForCausalLM.from_config(planos)
 
 print("¡Mini-modelo personalizado construido y listo para hacer pruebas!")
+
+# Utilizamos el mni-modelo para generar texto a partir de un prompt
+from transformers import AutoTokenizer
+tokenizer = AutoTokenizer.from_pretrained("gpt2")
+input_text = "El secreto para hornear un buen pastel es "
+model_inputs = tokenizer([input_text], return_tensors="pt")
+generated_ids = mi_mini_modelo.generate(**model_inputs, max_new_tokens=30)
+resultado = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+print("\n--- RESULTADO DEL MINI-MODELO ---")
+print(resultado)
+
